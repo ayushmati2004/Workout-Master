@@ -1,0 +1,295 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-20px) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation utility classes */
+.animate-in {
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-from-bottom {
+  animation-name: slideInFromBottom;
+}
+
+.slide-in-from-right {
+  animation-name: slideInFromRight;
+}
+
+.zoom-in-50 {
+  animation-name: zoomIn50;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn50 {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile menu animations */
+@keyframes slide-in {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out forwards;
+}
+
+.animate-slide-out {
+  animation: slide-out 0.3s ease-in forwards;
+}
+
+/* Workout-themed shadow effects */
+.workoutShadow {
+  box-shadow: 3px 3px 0 0 #dc2626;
+  transition: all 0.3s ease;
+}
+
+.workoutShadow:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 #dc2626;
+}
+
+.redGlow {
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+  transition: all 0.3s ease;
+}
+
+.redGlow:hover {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+}
+
+/* Classic workout button styles */
+.workoutButton {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border: 2px solid #000000;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.workoutButton:hover {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(220, 38, 38, 0.4);
+}
+
+.workoutButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.workoutButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.workoutButton:hover::before {
+  left: 100%;
+}
+
+/* Workout card styles */
+.workoutCard {
+  background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 2px solid #404040;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.workoutCard:hover {
+  transform: translateY(-5px);
+  border-color: #dc2626;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.2);
+}
+
+.workoutCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #dc2626, #ffd700, #dc2626);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.workoutCard:hover::before {
+  transform: scaleX(1);
+}
+
+/* Text effects */
+.workoutText {
+  background: linear-gradient(135deg, #dc2626 0%, #ffd700 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+/* Loading spinner for workout theme */
+.workoutSpinner {
+  border: 3px solid #404040;
+  border-top: 3px solid #dc2626;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Progress bar styles */
+.workoutProgress {
+  background: #404040;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.workoutProgressBar {
+  background: linear-gradient(90deg, #dc2626 0%, #ffd700 50%, #dc2626 100%);
+  height: 100%;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.workoutProgressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
